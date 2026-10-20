@@ -86,12 +86,11 @@ def get_groq_api_key():
 # 4. Create the research agent
 # ----------------------------------------
 def create_research_agent(api_key: str):
-    llm = LLM(
-        model="groq/openai/gpt-oss-120b",
-        api_key=api_key,
-        temperature=0.2,
-    )
-
+ llm = LLM(
+    model="groq/openai/gpt-oss-120b",
+    api_key=api_key,
+    temperature=0.2,
+)
     search_tool = DuckDuckGoSearchTool(max_results=5)
 
     researcher = Agent(
