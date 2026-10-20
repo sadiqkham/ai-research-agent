@@ -85,30 +85,29 @@ def get_groq_api_key():
 # ----------------------------------------
 # 4. Create the research agent
 # ----------------------------------------
+
 def create_research_agent(api_key: str):
- llm = LLM(
-    model="groq/openai/gpt-oss-120b",
-    api_key=api_key,
-    temperature=0.2,
-)
+    llm = LLM(
+        model="groq/openai/gpt-oss-120b",
+        api_key=api_key,
+        temperature=0.2,
+    )
+
     search_tool = DuckDuckGoSearchTool(max_results=5)
 
     researcher = Agent(
         role="Professional Research Analyst",
-
         goal=(
             "Research the user's topic using reliable web sources, "
             "compare findings, identify limitations, and write "
             "an accurate, well-structured research report."
         ),
-
         backstory=(
             "You are a careful research analyst. You distinguish "
             "facts from opinions, avoid unsupported claims, "
             "and never invent sources, quotations, statistics, "
             "or publication dates."
         ),
-
         llm=llm,
         tools=[search_tool],
         allow_delegation=False,
