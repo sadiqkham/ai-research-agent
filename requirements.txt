@@ -1,6 +1,6 @@
 
-
 crewai[litellm]>=1.0.0,<2.0.0
+litellm==1.105.1
 streamlit>=1.40.0
 ddgs>=9.0.0
 pydantic>=2.0.0
